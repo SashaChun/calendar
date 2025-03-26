@@ -6,10 +6,11 @@ type TeacherProps = {
     photo?: string | StaticImageData;
     availableSlots: number; // Кількість вільних місць
     pib :string,
-    link : string
+    link : string,
+    degree : string
 };
 
-const Teacher: FC<TeacherProps> = ({ photo, pib ,availableSlots,link }) => {
+const Teacher: FC<TeacherProps> = ({ photo, degree , pib ,availableSlots,link }) => {
 
     function handleSubmit(){
 
@@ -37,7 +38,7 @@ const Teacher: FC<TeacherProps> = ({ photo, pib ,availableSlots,link }) => {
                 <p className="text-2xl font-bold">{pib}</p>
                 <p className="text-lg">Факультет комп’ютерних та інформаційних технологій</p>
                 <p className="text-lg">Кафедра комп’ютерних наук</p>
-                <p className="text-lg">Доцент</p>
+                <p className="text-lg">{degree}</p>
 
                 {/* Вільні місця */}
                 <p className={`mt-2 text-lg font-semibold ${availableSlots > 0 ? 'text-green-400' : 'text-red-400'}`}>

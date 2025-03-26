@@ -13,6 +13,7 @@ interface Teacher {
     fullName: string;
     photo: string;
     students: Student[];
+    degree : string
 }
 
 export default function TeacherList() {
@@ -54,6 +55,7 @@ export default function TeacherList() {
                         key={teacher.id}
                         photo={teacher?.photo }
                         availableSlots={availableSlots}
+                        degree={teacher.degree}
                     />
                 );
             })}

@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
 import { ObjectId } from 'mongodb';
+import {revalidatePath} from "next/cache";
 
 const prisma = new PrismaClient();
 
@@ -34,6 +35,9 @@ export async function POST(request: Request) {
       },
     });
     console.log(newStudent)
+    revalidatePath(`/${teacherId}`, "page");
+
+
     return NextResponse.json(newStudent, { status: 201 });
   } catch (error) {
     console.error('Помилка при додаванні студента:', (error as Error).message);

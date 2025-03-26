@@ -137,6 +137,8 @@ const MyCalendar: FC<MyCalendarProps> = ({ startHour, data, endHour }) => {
         };
     };
 
+
+
     console.log('data boolean', data)
 
     return (
@@ -227,7 +229,7 @@ const MyCalendar: FC<MyCalendarProps> = ({ startHour, data, endHour }) => {
             {
                 data ?
                     <div className="bg-red-500 text-white py-3 px-6 rounded-lg text-center font-bold shadow-md mt-5">
-                        <span>Переведено</span>
+                        <span>Немає вільного місця</span>
                     </div> : <StydenForm btnText={btnStyle.btnText} btnStyle={btnStyle.btnStyle} availableSlots={1}
                                          handleFormSubmit={handleFormSubmit} formData={formData}
                                          setFormData={setFormData}/>

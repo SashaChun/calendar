@@ -2,10 +2,15 @@
 
     import { useRef, useState } from "react";
     import moment from "moment";
-    import {revalidatePath} from "next/cache";
     import {revalidateData} from "@/components/revalidate";
+    import {revalidateStudentPage} from "../../action/revalidate";
+    import {useParams} from "next/navigation";
+    import {Params} from "next/dist/server/request/params";
 
     const StudentForm = ({ availableSlots, handleFormSubmit, formData, btnText, setFormData, btnStyle }: any) => {
+        const params = useParams() as unknown as Params;
+        const { id } = params;
+
         const dialogRef = useRef<HTMLDialogElement | null>(null);
         const [fullName, setFullName] = useState("");
         const [group, setGroup] = useState("");
@@ -16,8 +21,7 @@
             <>
                 <button
                     className="mt-4 px-6 py-2 w-full bg-[#3b3d93] text-white font-semibold rounded-lg shadow-md
-                         transition disabled:bg-gray-500 disabled:cursor-not-allowed"
-                    disabled={availableSlots === 0}
+          transition "
                     onClick={() => dialogRef.current?.showModal()}
                 >
                     Записатися
@@ -63,7 +67,7 @@
                             <button
                                 onClick={() => {
                                     dialogRef.current?.close();
-                                    revalidateData()
+                                    revalidateStudentPage(`${id}`);
                                 }}
                                 type="submit"
                                 className={btnStyle}
