@@ -18,7 +18,8 @@
     "prisma": "^6.5.0",
     "react": "^19.0.0",
     "react-big-calendar": "^1.18.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "vercel": "^41.4.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
