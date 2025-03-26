@@ -90,6 +90,8 @@ const Appointment = () => {
                         <p className="text-2xl font-bold text-gray-800">{teacher.fullName}</p>
                         <p className="text-lg text-gray-600">{teacher.faculty}</p>
                         <p className="text-lg text-gray-600">{teacher.department}</p>
+
+                        <p className="text-lg text-gray-600">{teacher.department}</p>
                         <p className={`mt-2 text-lg font-semibold ${availableSlots > 0 ? 'text-green-500' : 'text-red-500'}`}>
                             {availableSlots > 0 ? `Вільні місця: ${availableSlots}` : "Немає вільних місць"}
                         </p>
